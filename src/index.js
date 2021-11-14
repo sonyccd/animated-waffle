@@ -5,11 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
+import { Auth0Provider } from "@auth0/auth0-react";
 Amplify.configure(config);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Auth0Provider
+      domain="dev-pewdcrrc.us.auth0.com"
+      clientId="I0HbYjjP8C9Pg5LikkjWTryBhieV40F8"
+      redirectUri={window.location.origin}
+    >
+      <App />
+    </Auth0Provider>,
   </React.StrictMode>,
   document.getElementById('root')
 );
